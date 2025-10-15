@@ -1,0 +1,32 @@
+* {
+margin: 0;
+padding: 0;
+font-family: 'poppins', sans-serif;
+}
+
+.cor {
+color: #7063F0;
+}
+
+.cabecalho {
+width: 100%;
+height: 80px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+border: 1px solid #E7E5FF;
+}
+
+.container {
+width: 100%;
+height: 80px; 
+margin-top: 50px;
+margin-right: 20px;
+color: #2D2D2D;
+}
+
+.alinhar {
+max-width: 1080px;
+margin: 0 auto;
+border: 1px solid black;
+}
