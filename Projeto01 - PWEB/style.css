@@ -81,23 +81,13 @@ main {
     margin: 30px 0;
 }
 
-.C1 {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 5rem;
-}
-
 .alinhar h3 {
     color: #2D2D2D;
 }
 
-.alinhar p {
-    color: #555555;
-}
-
-.alinhar p:last-child {
-    text-align: center;
-    margin-top: 5rem;
-    color: #2D2D2D;
+.divfim {
+    margin: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
