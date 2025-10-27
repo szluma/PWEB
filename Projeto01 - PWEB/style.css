@@ -91,3 +91,43 @@ main {
     flex-direction: column;
     align-items: center;
 }
+
+.tarefa-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    background: #E4E1FF;
+    border: 1px solid #7063F0;
+    border-radius: 10px;
+}
+
+.tarefa-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.concluida {
+    text-decoration: line-through;
+    color: #7063F0;
+    display: inline-flexbox;
+}
+
+.btn-delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.data-tarefa {
+    display: block;
+    color: #555;
+}
+
+.verde {
+    background: #d6ffd8;
+    border: 1px solid #32a852;
+}
