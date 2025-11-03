@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "Luma e Clara",
+            "email": "strangerthings@gmail.com"
+        },
+        {
+            "id": "2",
+            "name": "Eve Polastri",
+            "email": "villanelle@gmail.com"
+        }
+    ]
+}
