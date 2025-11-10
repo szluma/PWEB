@@ -22,9 +22,9 @@ body {
 
 .caixa {
     border: 1px solid rgba(56, 56, 56, 0.521);
-    border-radius: 5px;
+    border-radius: 10px;
     margin-top: 3rem;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     background-color: rgb(29, 28, 28);
@@ -35,9 +35,31 @@ button {
     color: white;
     border-radius: 5px;
     border: none;
-    padding: 5px;
+    padding: 8px;
 }
 
-.pesquisa {
+.pesq {
+    margin-top: 20px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(56, 56, 56, 0.521);;
     padding: 15px;
+    background-color: rgb(29, 28, 28);
+}
+
+.ult_div {
+    margin-top: 10rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(255, 255, 255);;
+}
+
+.last {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(95, 95, 95);
 }
