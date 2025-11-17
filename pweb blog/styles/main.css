@@ -34,15 +34,20 @@ header {
     margin-right: 30px;
 }
 
-.botao {
-    background-color: rgb(133, 5, 5);
-    color: white;
-    padding: 10px;
+.sobre {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin: 0 auto;
-    margin-top: 50px;
-    border-radius: 7px;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.botao {
+    background-color: rgb(133, 5, 5);
+    color: white;
+    padding: 12px;
+    width: 120px;
+    border-radius: 35px;
     border: none;
 }
