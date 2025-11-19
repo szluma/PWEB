@@ -26,6 +26,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: rgb(85, 4, 4);
+    color: #fff;
 }
 
 .categorias {
@@ -37,10 +39,11 @@ header {
 .sobre {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    gap: 2rem;
 }
 
 .botao {
@@ -49,5 +52,23 @@ header {
     padding: 12px;
     width: 120px;
     border-radius: 35px;
+    border: none;
+}
+
+.bt1 {
+    width: 145px;
+    height: 42px;
+    background-color: darkred;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+}
+
+.bt2 {
+    width: 145px;
+    height: 42px;
+    background-color: rgb(85, 4, 4);
+    color: #fff;
+    border-radius: 8px;
     border: none;
 }
