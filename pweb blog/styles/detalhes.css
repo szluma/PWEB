@@ -7,6 +7,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+main {
+    background-color: #2F0000;
+}
+
 .header {
     display: flex;
     align-items: center;
@@ -22,6 +26,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #2F0000;
+    color: #FDF0D5;
 }
 
 .categorias {
@@ -31,15 +37,16 @@ header {
 }
 
 .artigos {
-    margin-top: 60px;
-    padding: 0 212px;
+    margin-top: 20px;
+    padding: 60px;
 }
 
 .btv {
-    margin: 212px;
-    margin-top: 20px;
+    padding: 50px;
     text-decoration: none;
-    color:  rgb(114, 9, 9);
+    background-color: #2F0000;
+    color: #fff;
+    display: block;
 }
 
 .ajustar {
@@ -49,5 +56,14 @@ header {
 }
 
 .menu{
-    text-align: right;
+    text-align: justify;
+}
+
+.semelhantes {
+    background-color: #2F0000;
+    color: #FDF0D5;
+}
+
+.conteudo {
+    margin-top: 25px;
 }
