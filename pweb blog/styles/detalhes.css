@@ -64,6 +64,50 @@ header {
     color: #FDF0D5;
 }
 
+footer {
+    width: 100%;
+    padding: 50px 0;
+    background-color: #2F0000;
+    color: #FDF0D5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caixaConteudo {
+    display: flex;
+    justify-content: space-between;
+    max-width: 750px;
+    width: 100%;
+    padding: 60px;
+}
+
 .conteudo {
-    margin-top: 25px;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu ul {
+    list-style: none;
+}
+
+.menu ul li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.seta {
+    position: absolute;
+    right: 40px;
+    padding: 15px;
+    background-color: #2F0000;
+    color: #FDF0D5;
+    border: 0.5px solid #FDF0D5;
+    border-radius: 50dvh;
+    cursor: pointer;
 }

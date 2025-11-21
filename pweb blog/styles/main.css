@@ -8,7 +8,9 @@
 }
 
 body {
-    background-color: white;
+    background: url(../imagens/fundo.png);
+    color: #FDF0D5;
+
 }
 
 .headers{
@@ -26,7 +28,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #2F0000;
+    background: url(../imagens/fundo.png);
     color: #fff;
 }
 
@@ -52,7 +54,11 @@ header {
     padding: 12px;
     width: 120px;
     border-radius: 35px;
-    border: none;
+    border: 0.5px solid #FDF0D5;
+}
+
+.texto2 {
+    text-align: center;
 }
 
 .bt1 {
@@ -60,8 +66,9 @@ header {
     height: 42px;
     background-color: #490000;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 5px;
     border: none;
+    cursor: pointer;
 }
 
 .bt2 {
@@ -69,20 +76,60 @@ header {
     height: 42px;
     background-color: #2F0000;
     color: #fff;
-    border-radius: 8px;
+    border-radius: 5px;
     border: none;
+    cursor: pointer;
+}
+
+.conteudo {
+    background-color: #fff;
+    color: black;
+    width: 100%;
+    height: 10%;
 }
 
 footer {
     width: 100%;
-    height: 400px;
+    padding: 50px 0;
+    color: #fff;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
-footer.fim {
-    display:flex;
+.fim {
+    display: flex;
+    justify-content: space-between;
+    max-width: 750px;
+    width: 100%;
+}
+
+.mensagem {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixaExplorar ul {
+    list-style: none;
+}
+
+.caixaExplorar ul li a {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 80px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.seta {
+    position: absolute;
+    right: 40px;
+    padding: 15px;
+    background-color: #2F0000;
+    color: #FDF0D5;
+    border: 0.5px solid #FDF0D5;
+    border-radius: 50dvh;
+    cursor: pointer;
 }
