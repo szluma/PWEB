@@ -81,11 +81,53 @@ header {
     cursor: pointer;
 }
 
-.conteudo {
+.posts {
     background-color: #fff;
     color: black;
+    padding: 30px;
+}
+
+.nomeCont {
+    color: #490000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo {
     width: 100%;
-    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.img1 {
+    border-radius: 25px;
+    margin-top: 30px;
+    width: 800px;
+    margin-left: 100px;
+}
+
+.informacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 800px;
+    margin-top: 25px;
+    margin-left: 100px;
+}
+
+.texto1 {
+    max-width: 100%;
+    width: 800px;
+    margin-top: 25px;
+    margin-left: 100px;
+}
+
+.img2 {
+    margin-top: 30px;
 }
 
 footer {
@@ -95,6 +137,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.foto {
+    background: url(../imagens/footer.png);
 }
 
 .fim {
