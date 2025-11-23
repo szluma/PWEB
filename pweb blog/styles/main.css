@@ -24,6 +24,12 @@ body {
     margin-top: 20px;
 }
 
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -34,6 +40,7 @@ header {
 
 .categorias {
     display: flex;
+    justify-content: right;
     gap: 5rem;
     margin-right: 30px;
 }
@@ -88,46 +95,118 @@ header {
 }
 
 .nomeCont {
-    color: #490000;
+    color: #b90000;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-left: 80px;
 }
 
 .conteudo {
-    width: 100%;
+    width: 900px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 60px;
     padding: 20px;
+    background-color: #fff;
+    color: black;
 }
 
 .img1 {
     border-radius: 25px;
     margin-top: 30px;
-    width: 800px;
-    margin-left: 100px;
+    width: 600px;
+    margin-left: 80px;
 }
 
-.informacao {
+.cor1 {
+    color: #b90000;
+}
+
+.info1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 100%;
-    width: 800px;
+    width: 600px;
     margin-top: 25px;
-    margin-left: 100px;
+    margin-left: 80px;
 }
 
 .texto1 {
     max-width: 100%;
-    width: 800px;
+    width: 600px;
     margin-top: 25px;
-    margin-left: 100px;
+    margin-left: 80px;
+}
+
+.org1 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 80px;
+    position: relative;
+    top: -470px;
 }
 
 .img2 {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
     margin-top: 30px;
+}
+
+.info {
+    margin: 20px;
+    color: #b90000;
+}
+
+.espacamento1 {
+    margin-top: 5px;
+    color: black;
+}
+
+.org2 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 80px;
+    position: relative;
+    top: -450px;
+}
+
+.img3 {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.img4 {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 30px; 
+}
+
+.org3 {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 80px;
+    position: relative;
+    top: -430px;
+}
+
+.Artigos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 80px;
+}
+
+.pesq {
+    padding: 10px;
+    width: 280px;
 }
 
 footer {
