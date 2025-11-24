@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    color: #FDF0D5;
+
+}
+
+fotoFundo {
+    background: #2F0000 url(../imagens/fundo.png);
+}
+
+.headers{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1500px;
+    margin-left: 30px;
+    margin: 30px;
+    margin-top: 20px;
+}
+
+.titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background: #2F0000 url(../imagens/fundo.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.categorias {
+    display: flex;
+    justify-content: right;
+    gap: 5rem;
+    margin-right: 30px;
+}
+
+.sobre {
+    background: #2F0000 url(../imagens/fundo.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    gap: 2rem;
+}
+
+.botao {
+    background-color: #490000;
+    color: white;
+    padding: 12px;
+    width: 120px;
+    border-radius: 35px;
+    border: 0.5px solid #FDF0D5;
+}
+
+.texto2 {
+    text-align: center;
+}
+
+.bt1 {
+    width: 145px;
+    height: 42px;
+    background-color: #490000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.bt2 {
+    width: 145px;
+    height: 42px;
+    background-color: #2F0000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.posts {
+    background-color: #fff;
+    color: black;
+    padding: 30px;
+    height: 800px;
+    border: 10px solid rgb(167, 194, 13);
+}
+
+.nomeCont {
+    color: #b90000;
+    display: flex;
+    margin-left: 80px;
+}
+
+.conteudo {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 60px;
+    padding: 20px;
+    background-color: #fff;
+    color: black;
+}
+
+.werych {
+    width: 45%;
+}
+
+
+.img1 {
+    border-radius: 25px;
+    margin-top: 30px;
+    width: 100%;
+    margin-left: 80px;
+}
+
+.cor1 {
+    color: #b90000;
+}
+
+.tudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.info1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 600px;
+    margin-top: 25px;
+    margin-left: 80px;
+}
+
+.texto1 {
+    max-width: 100%;
+    width: 600px;
+    margin-top: 25px;
+    margin-left: 80px;
+}
+
+.org1 {
+    width: 80%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 80px;
+    position: relative;
+    bottom: 595px;
+}
+
+.img234 {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.info {
+    margin: 20px;
+    color: #b90000;
+}
+
+.espacamento1 {
+    margin-top: 5px;
+    color: black;
+}
+
+.Artigos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 80px;
+}
+
+.pesq {
+    padding: 10px;
+    width: 280px;
+}
+
+footer {
+    width: 105% ;
+    padding: 50px ;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2F0000 url(../imagens/footer.png.png);
+}
+
+/* .foto {
+    background: url(../imagens/footer.png);
+} */
+
+.fim {
+    display: flex;
+    justify-content: space-between;
+    max-width: 750px;
+    width: 100%;
+}
+
+.mensagem {
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+}
+
+.caixaExplorar ul {
+    list-style: none;
+}
+
+.caixaExplorar ul li a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+
+.seta {
+    position: absolute;
+    right: 40px;
+    padding: 15px;
+    background-color: #2F0000;
+    color: #FDF0D5;
+    border: 0.5px solid #FDF0D5;
+    border-radius: 50dvh;
+    cursor: pointer;
+}
