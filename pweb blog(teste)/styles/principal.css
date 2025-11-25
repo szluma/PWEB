@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    color: #FDF0D5;
+
+}
+
+.sobre {
+    background: url(../imagens/fundo.png);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    gap: 1rem;
+}
+
+botaoSuper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.botao {
+    background-color: #490000;
+    color: white;
+    padding: 12px;
+    width: 120px;
+    border-radius: 35px;
+    border: 0.5px solid #FDF0D5;
+}
+
+.texto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.texto p {
+    text-align: center;
+}
+
+.bt1 {
+    width: 145px;
+    height: 42px;
+    background-color: #490000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.bt2 {
+    width: 145px;
+    height: 42px;
+    background-color: #2F0000;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.posts {
+    background-color: #fff;
+    color: black;
+    max-width: 100%;
+    margin: 340px auto;
+    padding: 30px;
+    display: flex;
+    gap: 60px;
+}
+
+.nomeCont {
+    color: #b90000;
+    display: flex;
+    margin-left: 80px;
+}
+
+.conteudo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 60px;
+    padding: 20px;
+    background-color: #fff;
+    color: black;
+}
+
+.werych {
+    width: 45%;
+}
+
+
+.img1 {
+    border-radius: 25px;
+    margin-top: 30px;
+    width: 100%;
+    margin-left: 80px;
+}
+
+.cor1 {
+    color: #b90000;
+}
+
+.tudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.imagens {
+    display: flex;
+    margin-left: 80px;
+    gap: 40px;
+}
+
+.img1 {
+    border-radius: 25px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.info1,
+.texto1 {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.org1 {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px;
+}
+
+
+.img234 {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-top: 30px;
+}
+
+.info {
+    margin: 20px;
+    color: #b90000;
+}
+
+.espacamento1 {
+    margin-top: 5px;
+    color: black;
+}
+
+.Artigos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 80px;
+}
+
+.pesq {
+    padding: 10px;
+    width: 280px;
+}
+/* .foto {
+    background: url(../imagens/footer.png);
+} */
