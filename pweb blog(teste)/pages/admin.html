@@ -7,20 +7,126 @@
     <link rel="stylesheet" href="../styles/global.css">
 </head>
 <body>
-    <main>
-        <div class="header">
-            <h2 class="cor">Blog</h2>
-            <p>Bem-Vindo, <b>José</b></p>
-        </div>
+    <main class="main">
+        <header class="headerv">
+            <div class="header">
+                <h2 class="cor">Arquivos Obscuros</h2>
+                <p class="cor">Bem-Vindo, <b>Admin!</b></p>
+            </div>
+        </header>
+
         <div class="teste">
             <div class="publi">
                 <h2>Minhas publicações</h2>
-                <button class="bot">+ Novo Post</button>
+                <button id="bt" class="bot1">+ Novo Post</button>
+            </div>
         </div>
+
+    <div class="cl">
+        <div class="imagens">
+
+            <div class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p> 
+
+                <div class="edit">
+                    <button class="opc">Editar 🖉</button>
+                    <button class="opc2">Excluir 🖉</button>
+                </div>
+            </div>
+
+            <div class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                    <button class="opc">Editar 🖉</button>
+                    <button class="opc2">Excluir 🖉</button>
+                </div>
+            </div>
+
+            <div class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+           <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+           <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
         </div>
+    </div>
         <section class="fnl">
-            <button class="carregar">Carregar mais</button>
+            <button class="t">Carregar mais</button>
         </section>
     </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <form class="formulario" id="formulario">
+            <div class="container">
+                <div class="dif"> 
+                    <h3>Criar postagem</h3>
+                    <p>Preencha os dados para criar uma postagem</p>
+                </div>
+
+                <label for="nome">Nome do autor:</label>
+                <input type="text" id="nome" placeholder="Informe o nome" required>
+        
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" placeholder="Informeo a categoria" required>
+    
+                <label for="url">Informe a URL da imagem:</label>
+                <input type="text" id="url" placeholder="Informe a URL de capa" required></textarea>
+
+                <label class="tam" for="assunto">Informe o assunto:</label>
+                <textarea id="assunto" placeholder="assunto" rows="5" required></textarea>
+        
+                <button class="butcon" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+<script src="../scripts/posts.js"></script>
 </body>
 </html>
