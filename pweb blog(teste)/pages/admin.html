@@ -27,7 +27,7 @@
 
             <div class="imagem">
                 <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
                 <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
                 <p class="esp">🗓️ 24, Nov • 👤 José</p> 
 
@@ -39,7 +39,7 @@
 
             <div class="imagem">
                 <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
                 <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
                 <p class="esp">🗓️ 24, Nov • 👤 José</p>
 
@@ -51,7 +51,7 @@
 
             <div class="imagem">
                 <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-                <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
                 <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
                 <p class="esp">🗓️ 24, Nov • 👤 José</p>
 
@@ -63,7 +63,7 @@
 
          <div class="imagem">
             <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
             <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
             <p class="esp">🗓️ 24, Nov • 👤 José</p>
 
@@ -75,19 +75,19 @@
 
          <div class="imagem">
             <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
             <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
             <p class="esp">🗓️ 24, Nov • 👤 José</p>
 
            <div class="edit">
-                <button class="opc">Editar 🖉</button>
+                <button  class="opc">Editar 🖉</button>
                 <button class="opc2">Excluir 🖉</button>
             </div>
          </div>
 
          <div class="imagem">
             <img src="../imagens/blackmirror.jpeg" alt="" class="a">
-            <p><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></p>
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
             <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
             <p class="esp">🗓️ 24, Nov • 👤 José</p>
 
@@ -114,6 +114,9 @@
                 <label for="nome">Nome do autor:</label>
                 <input type="text" id="nome" placeholder="Informe o nome" required>
         
+                <label for="titulo">Título:</label>
+                <input type="text" id="tile" placeholder="Informeo o título" required>
+
                 <label for="categoria">Categoria:</label>
                 <input type="text" id="categoria" placeholder="Informeo a categoria" required>
     
@@ -127,6 +130,35 @@
             </div>
         </form>
     </div>
-<script src="../scripts/posts.js"></script>
+
+    <div class="modal-overlay" id="edtmodal-overlay">
+        <form class="formulario" id="formEdt">
+            <div class="container">
+                <div class="dif"> 
+                    <h3>Editar postagem</h3>
+                    <p>Preencha os dados para criar uma postagem</p>
+                </div>
+
+                <label for="nome">Nome do autor:</label>
+                <input type="text" id="nomedt" placeholder="Informe o nome" required>
+
+                <label for="titulo">Título:</label>
+                <input type="text" id="title" placeholder="Informeo o título" required></input>
+        
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoriaedt" placeholder="Informeo a categoria" required>
+    
+                <label for="url">Informe a URL da imagem:</label>
+                <input type="text" id="urledt" placeholder="Informe a URL de capa" required></textarea>
+
+                <label class="tam" for="assunto">Informe o assunto:</label>
+                <textarea id="edtassunto" placeholder="assunto" rows="5" required></textarea>
+        
+                <button class="butcon" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="../scripts/posts.js"></script>
 </body>
 </html>

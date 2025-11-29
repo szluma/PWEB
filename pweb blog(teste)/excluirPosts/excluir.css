@@ -1,0 +1,42 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cont {
+    max-width: 400px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 12%;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(54, 52, 52);
+}
+
+.alinh {
+    max-width: 250px;
+    height: 30%;
+}
+
+.btadmin {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-height: 30%;
+}
+
+.excl, .cancel {
+    width: 125%;
+    height: 42%;
+    margin-top: 3px;
+    border-radius: 5px;
+    border: 1px solid #3d3737;
+    color: #2F0000;
+}

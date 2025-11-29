@@ -31,7 +31,6 @@
     justify-content: center;
 }
 
-
 .publi {
     display: flex;
     justify-content: space-between;
@@ -75,21 +74,18 @@
     color: black;
 }
 
-.imagem p {
-    gap: 1rem;
-    color: black;
+.imagem h4 {
+    font-weight: normal;
 }
 
 .esp {
-    gap: 0.5rem;
+    margin-top: 5px
 }
 
 .a  {
     width: 100%;
     border-radius: 5px;
 }
-
-
 
 .edit {
     display: flex;
@@ -141,12 +137,6 @@
     cursor: pointer;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 .modal-overlay {
     display: none;
     position: fixed;
@@ -165,7 +155,7 @@
 
 .container {
     max-width: 377px;
-    height: 477px;
+    height: 555px;
     margin: auto;
     padding: 20px;
     background-color: #dbdbdb;
@@ -192,20 +182,20 @@ label {
 input[type="text"],
 input[type="email"] {
     width: 340px;
-    height: 38px;
+    height: 40px;
     margin: 5px 0 1px;
-    border: 2px solid black;
+    border: 2px solid rgb(63, 53, 53);
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
 }
 
 textarea {
     width: 340px;
     height: 65px;
     margin: 5px 0 1px;
-    border: 2px solid black;
+    border: 2px solid rgb(63, 53, 53);
     border-radius: 5px; 
-    padding: 10px;
+    padding: 5px;
 }
 
 .tam {
@@ -216,7 +206,7 @@ textarea {
 .butcon {
     background-color: #290000;
     color: #FDF0D5;
-    padding: 15px;
+    padding: 12px;
     border: none;
     border-radius: 8px;
     cursor: pointer;

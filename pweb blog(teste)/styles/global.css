@@ -67,7 +67,7 @@ footer {
     color: #fff;
 }
 
-.caixaExplorar ul li a {
+.caixaExplorar ul li p {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -77,10 +77,24 @@ footer {
     color: #fff;
 }
 
+.botsubir {
+    display: flex;
+    align-items: center;
+}
+
+.botsubir a {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
 .seta {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     margin-left: 40px;
+    list-style: none;
+    text-decoration: none;
     background-color: #2F0000;
     color: #FDF0D5;
     border: 0.5px solid #FDF0D5;

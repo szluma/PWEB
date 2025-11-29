@@ -34,7 +34,7 @@ body {
 }
 
 .voltar {
-    width: 13%;
+    width: 18%;
     display: flex;
     color: #FDF0D5;
     font-weight: 600;
@@ -67,7 +67,7 @@ body {
 }
 .textBox{
     margin: auto;
-    width: 40%;
+    width: 60%;
     border-radius: 12px;
     position: relative;
     background-color: #FFF;
