@@ -117,17 +117,101 @@ MaximoPosts();
 
 // botão de editar postagem
 
-const nomedt = document.getElementById("nomedt");
-const title = document.getElementById("title");
-const categoriaedt = document.getElementById("categoriaedt");
-const urledt = document.getElementById("urledt");
-const edtassunto = document.getElementById("edtassunto");
+const edtmodal = document.getElementById("edtmodal-overlay");
+const eform = document.getElementById("formEdt");
 
-let currentPost = null;
+const enome = document.getElementById("nomedt");
+const etitulo = document.getElementById("title");
+const ecategoria = document.getElementById("categoriaedt");
+const eurl = document.getElementById("urledt");
+const emensagem = document.getElementById("edtassunto");
 
-edtmodaloverlay.addEventListener("click", (e)=> {
-    if(e.target === edtmodaloverlay){
-        edtmodaloverlay.classList.remove("active");
-        currentPost = null;
+let editId = null;
+
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("opc")) {
+
+        const card = e.target.closest(".imagem");
+        editId = card.dataset.id;
+
+        // Preenche os inputs com placeholders
+        // enome.placeholder = card.querySelector("p.esp:last-of-type").textContent.split("•")[1].replace("👤", "").trim();
+        // etitulo.placeholder = card.querySelector("h4").textContent;
+        // ecategoria.placeholder = "";
+        // eurl.placeholder = card.querySelector("img").src;
+        // emensagem.placeholder = card.querySelector("p.esp").textContent;
+
+        edtmodal.classList.add("active");
     }
-})
+});
+
+// fechar modal de edição
+edtmodal.onclick = (e) => {
+    if (e.target === edtmodal) edtmodal.classList.remove("active");
+};
+
+eform.onsubmit = async (e) => {
+    e.preventDefault();
+
+    const postAtualizado = {
+        autor: enome.value || enome.placeholder,
+        titulo: etitulo.value || etitulo.placeholder,
+        categoria: ecategoria.value || ecategoria.placeholder,
+        url: eurl.value || eurl.placeholder,
+        mensagem: emensagem.value || emensagem.placeholder,
+        data: new Date().toLocaleDateString("pt-BR", { day: "2-digit", month: "short" }),
+        editadoEm: Date.now()
+    };
+
+    await fetch(`${API_URL}/${editId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(postAtualizado)
+    });
+
+    edtmodal.classList.remove("active");
+    CarregarPosts();
+};
+
+
+// =============================
+// 5. EXCLUIR POST (DELETE)
+// =============================
+// Modal de exclusão
+// Modal de excluir
+const exmodal = document.getElementById("modal-excluir");
+const confirmarExcluir = document.getElementById("confirmar-excluir");
+const cancelarExcluir = document.getElementById("cancelar-excluir");
+
+let postIdExcluir = null;
+
+// Abrir modal ao clicar em "Excluir"
+document.addEventListener("click", (e) => {
+    const botaoDelete = e.target.closest(".opc2"); // botão com classe .opc2
+
+    if (!botaoDelete) return; // se não clicou em excluir, ignora
+
+    const card = botaoDelete.closest(".imagem"); // pega o bloco do post
+
+    postIdExcluir = card.dataset.id; // pega o id do post salvo no HTML
+
+    exmodal.classList.add("active");
+});
+
+// Confirmar exclusão
+confirmarExcluir.addEventListener("click", async () => {
+    await fetch(`${API_URL}/${postIdExcluir}`, {
+        method: "DELETE"
+    });
+
+    exmodal.classList.remove("active");
+    postIdExcluir = null;
+
+    CarregarPosts();
+});
+
+// Cancelar exclusão
+cancelarExcluir.addEventListener("click", () => {
+    exmodal.classList.remove("active");
+    postIdExcluir = null;
+});

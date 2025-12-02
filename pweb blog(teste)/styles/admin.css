@@ -220,3 +220,60 @@ textarea {
 .butcon:hover {
     background-color: #490000;
 }
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 12%;
+    padding: 25px;
+    gap: 20px;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(54, 52, 52);
+}
+
+.alinh {
+    max-width: 250px;
+    height: 30%;
+    margin: auto;
+    text-align: justify;
+}
+
+.alinh h3 {
+    margin: 10px;
+}
+
+.btadmin {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65%;
+    gap: 5px;
+    margin-top: 20px;
+    color: #2F0000;
+}
+
+.excl {
+    width: 125%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #302c2c;
+    background-color: #500202; 
+    color: white;             
+    cursor: pointer;
+}
+
+.cancel {
+    width: 125%;
+    margin-top: 3px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #3d3737;
+    background-color: #574f4f;   
+    color: white;             
+    cursor: pointer;
+}
