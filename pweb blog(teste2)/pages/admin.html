@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../styles/global.css">
+</head>
+<body>
+    <main class="main">
+        <header class="headerv">
+            <div class="header">
+                <h2 class="cor">Arquivos Obscuros</h2>
+                <p class="cor">Bem-Vindo, <b>Admin!</b></p>
+            </div>
+        </header>
+
+        <div class="teste">
+            <div class="publi">
+                <h2>Minhas publicações</h2>
+                <button id="bt" class="bot1">+ Novo Post</button>
+            </div>
+        </div>
+
+    <div class="cl">
+        <div class="imagens">
+
+            <div id="posts" class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p> 
+
+                <div class="edit">
+                    <button class="opc">Editar 🖉</button>
+                    <button class="opc2">Excluir 🖉</button>
+                </div>
+            </div>
+
+            <div class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                    <button class="opc">Editar 🖉</button>
+                    <button class="opc2">Excluir 🖉</button>
+                </div>
+            </div>
+
+            <div class="imagem">
+                <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+                <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+                <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+                <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+            <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+           <div class="edit">
+                <button  class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+
+         <div class="imagem">
+            <img src="../imagens/blackmirror.jpeg" alt="" class="a">
+            <h4><b>Tudo o que você precisa para evoluir no front-end. Conteúdo atualizado, direto e feito por quem vive código.</b></h4>
+            <p class="esp">Para você que gosta de se perder em teorias e cenas marcantes.</p>
+            <p class="esp">🗓️ 24, Nov • 👤 José</p>
+
+           <div class="edit">
+                <button class="opc">Editar 🖉</button>
+                <button class="opc2">Excluir 🖉</button>
+            </div>
+         </div>
+        </div>
+    </div>
+        <section class="fnl">
+            <button id="maisPosts" class="t">Carregar mais</button>
+        </section>
+    </main>
+
+    <div class="modal-overlay" id="modal-overlay">
+        <form class="formulario" id="formulario">
+            <div class="container">
+                <div class="dif"> 
+                    <h3>Criar postagem</h3>
+                    <p>Preencha os dados para criar uma postagem</p>
+                </div>
+
+                <label for="nome">Nome do autor:</label>
+                <input type="text" id="nome" placeholder="Informe o nome" required>
+        
+                <label for="titulo">Título:</label>
+                <input type="text" id="tile" placeholder="Informeo o título" required>
+
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" placeholder="Informeo a categoria" required>
+    
+                <label for="url">Informe a URL da imagem:</label>
+                <input type="text" id="url" placeholder="Informe a URL de capa" required></textarea>
+
+                <label class="tam" for="assunto">Informe o assunto:</label>
+                <textarea id="assunto" placeholder="assunto" rows="5" required></textarea>
+        
+                <button class="butcon" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-overlay" id="edtmodal-overlay">
+        <form class="formulario" id="formEdt">
+            <div class="container">
+                <div class="dif"> 
+                    <h3>Editar postagem</h3>
+                    <p>Preencha os dados para editar uma postagem</p>
+                </div>
+
+                <label for="nome">Nome do autor:</label>
+                <input type="text" id="nomedt" placeholder="Informe o nome" required>
+
+                <label for="titulo">Título:</label>
+                <input type="text" id="title" placeholder="Informeo o título" required></input>
+        
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoriaedt" placeholder="Informeo a categoria" required>
+    
+                <label for="url">Informe a URL da imagem:</label>
+                <input type="text" id="urledt" placeholder="Informe a URL de capa" required></textarea>
+
+                <label class="tam" for="assunto">Informe o assunto:</label>
+                <textarea id="edtassunto" placeholder="assunto" rows="5" required></textarea>
+        
+                <button class="butcon" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="modal-overlay" id="modal-excluir">
+    <div class="cont">
+        <div class="alinh">
+            <h3>Excluir postagem</h3>
+            <p>Tem certeza que deseja excluir essa postagem? Ao clicar em sim o processo não pode ser desfeito.</p>
+        </div>
+
+        <div class="btadmin">
+            <button id="confirmar-excluir" class="excl">Excluir</button>
+            <button id="cancelar-excluir" class="cancel">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+
+    <script src="../scripts/admin.js"></script>
+</body>
+</html>

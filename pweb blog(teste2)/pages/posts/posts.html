@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../posts/posts.css">
+</head>
+<body>
+    <div class="modal-overlay" id="modal-overlay">
+        <form class="formulario" id="formulario">
+            <div class="container">
+                <div class="dif"> 
+                    <h3>Criar postagem</h3>
+                    <p>Preencha os dados para criar uma postagem</p>
+                </div>
+
+                <label for="nome">Nome do autor:</label>
+                <input type="text" id="nome" placeholder="Informe o nome" required>
+        
+                <label for="categoria">Categoria:</label>
+                <input type="text" id="categoria" placeholder="Informeo a categoria" required>
+    
+                <label for="url">Informe a URL da imagem:</label>
+                <input type="text" id="url" placeholder="Informe a URL de capa" required></textarea>
+
+                <label class="tam" for="assunto">Informe o assunto:</label>
+                <textarea id="assunto" placeholder="assunto" rows="5" required></textarea>
+        
+                <button class="butcon" type="submit">Salvar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

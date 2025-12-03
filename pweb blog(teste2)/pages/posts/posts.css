@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(37, 37, 37, 0.603);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.active {
+    display: flex;
+}
+
+.container {
+    max-width: 477px;
+    height: 600px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: #dbdbdb;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgb(54, 52, 52);
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+label {
+    margin-top: 30px;
+    display: block;
+    font-weight: bold;
+    color:black;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 435px;
+    height: 50px;
+    margin: 5px 0 1px;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 435px;
+    height: 83px;
+    margin: 5px 0 1px;
+    border: 2px solid black;
+    border-radius: 5px; 
+}
+
+.tam {
+    width: 435px;
+    height: 20px;
+}
+
+.butcon {
+    background-color: #290000;
+    color: #FDF0D5;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 435px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: ease 0.5s;
+}
+
+.butcon:hover {
+    background-color: #490000;
+}
