@@ -1,106 +1,110 @@
-const apiUrl = "http://localhost:3000/usuarios"; // Substitua pelo endpoint correto da sua API
+const apiUrl = "http://localhost:3000/usuarios"; 
+
+// Função de tempo desde a edição
+function tempoDesde(timestamp) {
+
+    const agora = Date.now();
+    const diferenca = agora - Number(timestamp);
+
+    if (diferenca < 0) return "editado agora";
+
+    const segundos = Math.floor(diferenca / 1000);
+    if (segundos < 60) return `editado há ${segundos} segundos`;
+
+    const minutos = Math.floor(segundos / 60);
+    if (minutos < 60) return `editado há ${minutos} minutos`;
+
+    const horas = Math.floor(minutos / 60);
+    if (horas < 24) return `editado há ${horas} horas`;
+
+    const dias = Math.floor(horas / 24);
+    return `editado há ${dias} dias`;
+}
+
+// Atualiza todas as tags com data-editado
+function atualizarTempos() {
+    const elementos = document.querySelectorAll("[data-editado]");
+    elementos.forEach(el => {
+        const timestamp = el.dataset.editado;
+        el.textContent = tempoDesde(timestamp);
+    });
+}
 
 // Função para controlar a quantidade de posts exibidos
 function MaximoPosts(posts) {
     const postsContainer = document.querySelector('.cl .fotos');
-    
-    // Obtém todas as imagens (posts)
     const postElements = postsContainer.querySelectorAll('.imagem');
 
-    // Controla a quantidade máxima de posts exibidos
     postElements.forEach((post, index) => {
-        if (index < maximo) {
-            post.style.display = 'block';
-        } else {
-            post.style.display = 'none';
-        }
+        post.style.display = index < maximo ? 'block' : 'none';
     });
 
-    // Se ainda tem posts escondidos, mostra o botão "Carregar mais"
-    if (maximo < postElements.length) {
-        btMais.style.display = 'block';
-    } else {
-        btMais.style.display = 'none';
-    }
+    btMais.style.display = maximo < postElements.length ? 'block' : 'none';
 }
 
 // Carregar posts quando a página for carregada
 window.addEventListener('DOMContentLoaded', () => {
-    carregarPosts();  // Chama a função para carregar os posts
+    carregarPosts();
 });
 
-// Variáveis de controle de visualização
-const btMais = document.getElementById("mais"); // Certifique-se que o botão #mais exista no HTML
-let maximo = 6; // Começa com 6 posts visíveis
+// Variáveis de controle
+const btMais = document.getElementById("mais");
+let maximo = 6;
 
-// Event listener para o botão "Carregar mais"
+// Botão "Carregar mais"
 btMais.addEventListener("click", () => {
-    maximo += 6;  // Adiciona 6 posts a cada clique
-    carregarPosts();  // Carrega mais posts da API
+    maximo += 6;
+    carregarPosts();
 });
 
+// Formatar data
 function formatarData(dataStr) {
-    // Definir os meses para conversão (com a versão abreviada de 3 letras)
     const meses = {
-        "jan": "jan",
-        "fev": "fev",
-        "mar": "mar",
-        "abr": "abr",
-        "mai": "mai",
-        "jun": "jun",
-        "jul": "jul",
-        "ago": "ago",
-        "set": "set",
-        "out": "out",
-        "nov": "nov",
-        "dez": "dez"
+        "jan": "jan","fev": "fev","mar": "mar","abr": "abr",
+        "mai": "mai","jun": "jun","jul": "jul","ago": "ago",
+        "set": "set","out": "out","nov": "nov","dez": "dez"
     };
 
-    // Limpa o "de" e o ponto final no mês
     dataStr = dataStr.toLowerCase().replace(' de', '').replace('.', '');
-
     const [dia, mesAbrev] = dataStr.split(" ");
 
-    if (meses[mesAbrev] !== undefined) {
-        const mes = meses[mesAbrev];
-
-        // Remove o ano e retorna a data no formato "dia mes"
-        const dataFormatada = `${dia} ${mes}`;
-        return dataFormatada;
-    } else {
-        return null;  // Retorna null caso não consiga converter
-    }
+    return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : null;
 }
 
+// Carregar posts
 function carregarPosts() {
     fetch(apiUrl)
         .then(response => response.json())
         .then(posts => {
             const postsContainer = document.querySelector('.cl .fotos');
-            postsContainer.innerHTML = '';  // Limpar posts antigos
+            postsContainer.innerHTML = '';
 
             posts.forEach(post => {
                 const postElement = document.createElement('div');
                 postElement.classList.add('imagem');
 
-                const dataPost = formatarData(post.data);  // Formatar a data
-                
-                // Verifica se a data foi formatada corretamente
+                const dataPost = formatarData(post.data);
                 const dataFormatada = dataPost ? dataPost : 'Data inválida';
 
                 postElement.innerHTML = `
                     <img src="${post.url}" alt="${post.titulo}" class="i">
                     <p class="v">${post.categoria}</p>
                     <p class="esp">${post.mensagem}</p>
-                    <p class="esp">🗓️ ${dataFormatada} • ⏱︎ Editado há 20 minutos</p>
+
+                    <p class="esp">
+                        🗓️ ${dataFormatada} • 
+                        ⏱︎ <span data-editado="${post.editado}"></span>
+                    </p>
                 `;
 
                 postsContainer.appendChild(postElement);
             });
 
-            MaximoPosts(posts);  // Atualiza os posts visíveis
+            MaximoPosts(posts);
+            atualizarTempos(); // Atualiza o tempo logo após carregar
         })
-        .catch(error => {
-            console.error('Erro:', error);
-        });
+        .catch(error => console.error('Erro:', error));
 }
+
+// Atualizar automaticamente a cada 30s
+setInterval(atualizarTempos, 30000);

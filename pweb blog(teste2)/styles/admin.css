@@ -62,6 +62,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 30px;
     width: 100%;
     max-width: 1100px;
     margin: 20px auto;  
@@ -224,19 +225,17 @@ textarea {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: auto;
-    margin-top: 12%;
     padding: 25px;
-    gap: 20px;
+    width: 100%;
+    max-width: 330px;
+    height: 40%;
     background-color: #dbdbdb;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgb(54, 52, 52);
 }
 
 .alinh {
-    max-width: 250px;
-    height: 30%;
-    margin: auto;
+    margin: 15px;
     text-align: justify;
 }
 
@@ -245,18 +244,15 @@ textarea {
 }
 
 .btadmin {
-    flex-direction: column;
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 65%;
+    justify-content: space-between; 
+    width: 100%;
     gap: 5px;
-    margin-top: 20px;
-    color: #2F0000;
 }
 
 .excl {
-    width: 125%;
+    flex: 1;         
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #302c2c;
@@ -266,8 +262,7 @@ textarea {
 }
 
 .cancel {
-    width: 125%;
-    margin-top: 3px;
+    flex: 1;        
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #3d3737;

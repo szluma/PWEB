@@ -30,6 +30,13 @@
     align-items: center;
     width: 50%;
     min-height: 30%;
+}.btadmin {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    min-height: 30%;
 }
 
 .excl, .cancel {
