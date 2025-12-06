@@ -1,36 +1,177 @@
-const apiUrl = "http://localhost:3000/usuarios"; 
+const apiUrl = "http://localhost:3000/usuarios";
 
-// Função de tempo desde a edição
-function tempoDesde(timestamp) {
+// ==================== FUNÇÃO TEMPO ====================
+function tempoDesde(valor) {
+    const timestamp = Number(valor);
+    if (!timestamp) return "editado agora";
 
-    const agora = Date.now();
-    const diferenca = agora - Number(timestamp);
+    const diferenca = Date.now() - timestamp;
 
-    if (diferenca < 0) return "editado agora";
+    const s = Math.floor(diferenca / 1000);
+    if (s < 60) return `editado há ${s}s`;
 
-    const segundos = Math.floor(diferenca / 1000);
-    if (segundos < 60) return `editado há ${segundos} segundos`;
+    const m = Math.floor(s / 60);
+    if (m < 60) return `editado há ${m} minutos`;
 
-    const minutos = Math.floor(segundos / 60);
-    if (minutos < 60) return `editado há ${minutos} minutos`;
+    const h = Math.floor(m / 60);
+    if (h < 24) return `editado há ${h} horas`;
 
-    const horas = Math.floor(minutos / 60);
-    if (horas < 24) return `editado há ${horas} horas`;
-
-    const dias = Math.floor(horas / 24);
-    return `editado há ${dias} dias`;
+    const d = Math.floor(h / 24);
+    return `editado há ${d} dias`;
 }
 
-// Atualiza todas as tags com data-editado
 function atualizarTempos() {
-    const elementos = document.querySelectorAll("[data-editado]");
-    elementos.forEach(el => {
-        const timestamp = el.dataset.editado;
-        el.textContent = tempoDesde(timestamp);
+    document.querySelectorAll("[data-editado]").forEach(el => {
+        el.textContent = tempoDesde(el.dataset.editado);
     });
 }
 
-// Função para controlar a quantidade de posts exibidos
+// ==================== FORMATAR DATA ====================
+function formatarData(dataStr) {
+    const meses = {
+        "jan":"jan","fev":"fev","mar":"mar","abr":"abr",
+        "mai":"mai","jun":"jun","jul":"jul","ago":"ago",
+        "set":"set","out":"out","nov":"nov","dez":"dez"
+    };
+
+    dataStr = dataStr.toLowerCase().replace(' de','').replace('.','');
+    const [dia, mesAbrev] = dataStr.split(" ");
+    return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : dataStr;
+}
+
+// ==================== CARREGAR POSTS ====================
+window.addEventListener("DOMContentLoaded", carregarTudo);
+
+function carregarTudo() {
+    fetch(apiUrl)
+        .then(res => res.json())
+        .then(posts => {
+            if (!posts.length) return;
+
+            carregarDestaque(posts[0]);       // ⭐ primeiro post
+            carregarPopulares(posts.slice(1, 4)); // ⭐ próximos 3
+            carregarArtigos(posts);           // ⭐ já tinha essa seção
+
+            atualizarTempos();
+        })
+        .catch(err => console.error("Erro ao carregar posts:", err));
+}
+
+// ==================== SEÇÃO: EM DESTAQUE ====================
+function carregarDestaque(post) {
+    const container = document.querySelector(".werych");
+
+    if (!container) return;
+
+    const dataFormatada = formatarData(post.data);
+    const editado = Number(post.editadoEm) || Date.now();
+
+    container.innerHTML = `
+        <h1>Em destaque</h1>
+
+        <img class="img1" src="${post.url}" alt="${post.titulo}">
+        
+        <div class="info1">
+            <p class="cor1">${post.categoria}</p>
+            <p>🗓️ ${dataFormatada} • ⏱︎ <span data-editado="${editado}">
+                ${tempoDesde(editado)}
+            </span></p>
+        </div>
+
+        <h2 class="texto1">${post.mensagem}</h2>
+    `;
+}
+
+// ==================== SEÇÃO: MAIS POPULARES ====================
+function carregarPopulares(lista) {
+    const container = document.querySelector(".tudo");
+
+    if (!container) return;
+
+    let html = `<section class="populares"><h2>Mais populares</h2></section>`;
+
+    lista.forEach(post => {
+        const dataFormatada = formatarData(post.data);
+        const editado = Number(post.editadoEm) || Date.now();
+
+        html += `
+            <div class="org1">
+                <img class="img234" src="${post.url}" alt="">
+                <div class="info">
+                    <p>${post.categoria}</p>
+                    <p class="espacamento1">${post.mensagem}</p>
+                    <p class="espacamento1">
+                        🗓️ ${dataFormatada} • ⏱︎ 
+                        <span data-editado="${editado}">${tempoDesde(editado)}</span>
+                    </p>
+                </div>
+            </div>
+            <hr class="linha">
+        `;
+    });
+
+    container.innerHTML = html;
+}
+
+// =========================== PESQUISA ===========================
+const barraPesquisa = document.querySelector(".pesq");
+
+barraPesquisa.addEventListener("input", () => {
+    const termo = barraPesquisa.value.toLowerCase();
+
+    const posts = document.querySelectorAll(".cl .fotos .imagem");
+
+    posts.forEach(post => {
+        const categoria = post.querySelector(".v").textContent.toLowerCase();
+        const mensagem = post.querySelector(".esp").textContent.toLowerCase();
+
+        if (categoria.includes(termo) || mensagem.includes(termo)) {
+            post.style.display = "block";
+        } else {
+            post.style.display = "none";
+        }
+    });
+});
+
+
+// ==================== SEÇÃO: ARTIGOS ====================
+function carregarArtigos(posts) {
+    const postsContainer = document.querySelector('.cl .fotos');
+    postsContainer.innerHTML = '';
+
+    posts.forEach(post => {
+        const postElement = document.createElement('div');
+        postElement.classList.add('imagem');
+
+        const dataFormatada = formatarData(post.data);
+        const valorEditado = Number(post.editadoEm) || Date.now();
+
+        postElement.innerHTML = `
+            <img src="${post.url}" alt="${post.titulo}" class="i">
+            <p class="v">${post.categoria}</p>
+            <p class="esp">${post.mensagem}</p>
+
+            <p class="esp">
+                🗓️ ${dataFormatada} • 
+                ⏱︎ <span data-editado="${valorEditado}">${tempoDesde(valorEditado)}</span>
+            </p>
+        `;
+
+        postsContainer.appendChild(postElement);
+    });
+
+    MaximoPosts(posts);
+}
+
+// ==================== BOTÃO "CARREGAR MAIS" ====================
+const btMais = document.getElementById("mais");
+let maximo = 6;
+
+btMais.addEventListener("click", () => {
+    maximo += 6;
+    carregarTudo();
+});
+
 function MaximoPosts(posts) {
     const postsContainer = document.querySelector('.cl .fotos');
     const postElements = postsContainer.querySelectorAll('.imagem');
@@ -42,69 +183,5 @@ function MaximoPosts(posts) {
     btMais.style.display = maximo < postElements.length ? 'block' : 'none';
 }
 
-// Carregar posts quando a página for carregada
-window.addEventListener('DOMContentLoaded', () => {
-    carregarPosts();
-});
-
-// Variáveis de controle
-const btMais = document.getElementById("mais");
-let maximo = 6;
-
-// Botão "Carregar mais"
-btMais.addEventListener("click", () => {
-    maximo += 6;
-    carregarPosts();
-});
-
-// Formatar data
-function formatarData(dataStr) {
-    const meses = {
-        "jan": "jan","fev": "fev","mar": "mar","abr": "abr",
-        "mai": "mai","jun": "jun","jul": "jul","ago": "ago",
-        "set": "set","out": "out","nov": "nov","dez": "dez"
-    };
-
-    dataStr = dataStr.toLowerCase().replace(' de', '').replace('.', '');
-    const [dia, mesAbrev] = dataStr.split(" ");
-
-    return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : null;
-}
-
-// Carregar posts
-function carregarPosts() {
-    fetch(apiUrl)
-        .then(response => response.json())
-        .then(posts => {
-            const postsContainer = document.querySelector('.cl .fotos');
-            postsContainer.innerHTML = '';
-
-            posts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.classList.add('imagem');
-
-                const dataPost = formatarData(post.data);
-                const dataFormatada = dataPost ? dataPost : 'Data inválida';
-
-                postElement.innerHTML = `
-                    <img src="${post.url}" alt="${post.titulo}" class="i">
-                    <p class="v">${post.categoria}</p>
-                    <p class="esp">${post.mensagem}</p>
-
-                    <p class="esp">
-                        🗓️ ${dataFormatada} • 
-                        ⏱︎ <span data-editado="${post.editado}"></span>
-                    </p>
-                `;
-
-                postsContainer.appendChild(postElement);
-            });
-
-            MaximoPosts(posts);
-            atualizarTempos(); // Atualiza o tempo logo após carregar
-        })
-        .catch(error => console.error('Erro:', error));
-}
-
-// Atualizar automaticamente a cada 30s
+// Atualiza tempo automaticamente
 setInterval(atualizarTempos, 30000);
