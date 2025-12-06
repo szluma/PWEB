@@ -7,7 +7,6 @@ const botaoConhecerMais = document.querySelector(".bt1");
 const botaoExplorarArtigos = document.querySelector(".bt2");
 
 const secaoDestaques = document.querySelector(".posts");
-
 const secaoArtigos = document.querySelector(".Artigos");
 
 if (botaoConhecerMais && secaoDestaques) {
@@ -48,12 +47,12 @@ function atualizarTempos() {
     });
 }
 
-// ajustar data da postagem
+// ajustar data
 function formatarData(dataStr) {
     const meses = {
-        "jan":"jan","fev":"fev","mar":"mar","abr":"abr",
-        "mai":"mai","jun":"jun","jul":"jul","ago":"ago",
-        "set":"set","out":"out","nov":"nov","dez":"dez"
+        jan:"jan", fev:"fev", mar:"mar", abr:"abr",
+        mai:"mai", jun:"jun", jul:"jul", ago:"ago",
+        set:"set", out:"out", nov:"nov", dez:"dez"
     };
 
     dataStr = dataStr.toLowerCase().replace(' de','').replace('.','');
@@ -61,7 +60,7 @@ function formatarData(dataStr) {
     return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : dataStr;
 }
 
-// carregar os posts do admin no principal
+// carregar posts do admin
 window.addEventListener("DOMContentLoaded", carregarTudo);
 
 function carregarTudo() {
@@ -72,17 +71,16 @@ function carregarTudo() {
 
             carregarDestaque(posts[0]);     
             carregarPopulares(posts.slice(1, 4));
-            carregarArtigos(posts.slice(4));       
+            carregarArtigos(posts.slice(4));
 
             atualizarTempos();
         })
         .catch(err => console.error("Erro ao carregar posts:", err));
 }
 
-// ajustar parte do "Em destaque"
+// DESTAQUE
 function carregarDestaque(post) {
     const container = document.querySelector(".werych");
-
     if (!container) return;
 
     const dataFormatada = formatarData(post.data);
@@ -91,23 +89,22 @@ function carregarDestaque(post) {
     container.innerHTML = `
         <h1>Em destaque</h1>
 
-        <img class="img1" src="${post.url}" alt="${post.titulo}">
+        <img class="img1 abrir-post" data-id="${post.id}" src="${post.url}" alt="${post.titulo}">
         
         <div class="info1">
             <p class="cor1">${post.categoria}</p>
-            <p>🗓️ ${dataFormatada} • ⏱︎ <span data-editado="${editado}">
-                ${tempoDesde(editado)}
-            </span></p>
+            <p>🗓️ ${dataFormatada} • ⏱︎ 
+                <span data-editado="${editado}">${tempoDesde(editado)}</span>
+            </p>
         </div>
 
         <h2 class="texto1">${post.mensagem}</h2>
     `;
 }
 
-// ajustar parte do "Mais populares"
+// POPULARES
 function carregarPopulares(lista) {
     const container = document.querySelector(".tudo");
-
     if (!container) return;
 
     let html = `<section class="populares"><h2>Mais populares</h2></section>`;
@@ -117,13 +114,14 @@ function carregarPopulares(lista) {
         const editado = Number(post.editadoEm) || Date.now();
 
         html += `
-            <div class="org1">
+            <div class="org1 abrir-post" data-id="${post.id}">
                 <img class="img234" src="${post.url}" alt="">
                 <div class="info">
                     <p>${post.categoria}</p>
                     <p class="espacamento1">${post.mensagem}</p>
                     <p class="espacamento1">
-                        🗓️ ${dataFormatada} • ⏱︎ <span data-editado="${editado}">${tempoDesde(editado)}</span>
+                        🗓️ ${dataFormatada} • ⏱︎ 
+                        <span data-editado="${editado}">${tempoDesde(editado)}</span>
                     </p>
                 </div>
             </div>
@@ -134,34 +132,33 @@ function carregarPopulares(lista) {
     container.innerHTML = html;
 }
 
-// fazer a barra de pesquisa funcionar
+// PESQUISA
 const barraPesquisa = document.querySelector(".pesq");
 
 barraPesquisa.addEventListener("input", () => {
     const termo = barraPesquisa.value.toLowerCase();
-
     const posts = document.querySelectorAll(".cl .fotos .imagem");
 
     posts.forEach(post => {
         const categoria = post.querySelector(".v").textContent.toLowerCase();
         const mensagem = post.querySelector(".esp").textContent.toLowerCase();
 
-        if (categoria.includes(termo) || mensagem.includes(termo)) {
-            post.style.display = "block";
-        } else {
-            post.style.display = "none";
-        }
+        post.style.display =
+            categoria.includes(termo) || mensagem.includes(termo)
+                ? "block"
+                : "none";
     });
 });
 
-// ajustar parte de "Artigos"
+// ARTIGOS
 function carregarArtigos(posts) {
     const postsContainer = document.querySelector('.cl .fotos');
     postsContainer.innerHTML = '';
 
     posts.forEach(post => {
         const postElement = document.createElement('div');
-        postElement.classList.add('imagem');
+        postElement.classList.add('imagem', 'abrir-post');
+        postElement.dataset.id = post.id;
 
         const dataFormatada = formatarData(post.data);
         const valorEditado = Number(post.editadoEm) || Date.now();
@@ -183,10 +180,22 @@ function carregarArtigos(posts) {
     MaximoPosts(posts);
 }
 
-// atualizar o tempo definido de 30 em 30 segundos
+// ⭐ EVENTO DE CLIQUE GLOBAL — FUNCIONA EM TODOS OS POSTS
+document.addEventListener("click", e => {
+    const alvo = e.target.closest(".abrir-post");
+    if (!alvo) return;
+
+    const id = alvo.dataset.id;
+    if (!id) return;
+
+    // 🔧 CAMINHO RELATIVO CORRETO
+    window.location.href = `./pages/detalhes.html?id=${id}`;
+});
+
+// atualizar tempo a cada 30s
 setInterval(atualizarTempos, 30000);
 
-// fazer o botão de carregar mais funcionar
+// botão carregar mais
 const btMais = document.getElementById("mais");
 let maximo = 6;
 
@@ -203,5 +212,6 @@ function MaximoPosts(posts) {
         post.style.display = index < maximo ? 'block' : 'none';
     });
 
-    btMais.style.display = maximo < postElements.length ? 'block' : 'none';
+    btMais.style.display =
+        maximo < postElements.length ? 'block' : 'none';
 }
