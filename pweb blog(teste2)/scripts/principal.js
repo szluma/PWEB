@@ -1,6 +1,28 @@
 const apiUrl = "http://localhost:3000/usuarios";
 
-// ==================== FUNÇÃO TEMPO ====================
+// rolar de forma suave para as sections
+document.documentElement.style.scrollBehavior = "smooth";
+
+const botaoConhecerMais = document.querySelector(".bt1");
+const botaoExplorarArtigos = document.querySelector(".bt2");
+
+const secaoDestaques = document.querySelector(".posts");
+
+const secaoArtigos = document.querySelector(".Artigos");
+
+if (botaoConhecerMais && secaoDestaques) {
+    botaoConhecerMais.addEventListener("click", () => {
+        secaoDestaques.scrollIntoView({ behavior: "smooth" });
+    });
+}
+
+if (botaoExplorarArtigos && secaoArtigos) {
+    botaoExplorarArtigos.addEventListener("click", () => {
+        secaoArtigos.scrollIntoView({ behavior: "smooth" });
+    });
+}
+
+// ajustar o tempo de edição e postagem
 function tempoDesde(valor) {
     const timestamp = Number(valor);
     if (!timestamp) return "editado agora";
@@ -26,7 +48,7 @@ function atualizarTempos() {
     });
 }
 
-// ==================== FORMATAR DATA ====================
+// ajustar data da postagem
 function formatarData(dataStr) {
     const meses = {
         "jan":"jan","fev":"fev","mar":"mar","abr":"abr",
@@ -39,7 +61,7 @@ function formatarData(dataStr) {
     return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : dataStr;
 }
 
-// ==================== CARREGAR POSTS ====================
+// carregar os posts do admin no principal
 window.addEventListener("DOMContentLoaded", carregarTudo);
 
 function carregarTudo() {
@@ -48,16 +70,16 @@ function carregarTudo() {
         .then(posts => {
             if (!posts.length) return;
 
-            carregarDestaque(posts[0]);       // ⭐ primeiro post
-            carregarPopulares(posts.slice(1, 4)); // ⭐ próximos 3
-            carregarArtigos(posts);           // ⭐ já tinha essa seção
+            carregarDestaque(posts[0]);     
+            carregarPopulares(posts.slice(1, 4));
+            carregarArtigos(posts.slice(4));       
 
             atualizarTempos();
         })
         .catch(err => console.error("Erro ao carregar posts:", err));
 }
 
-// ==================== SEÇÃO: EM DESTAQUE ====================
+// ajustar parte do "Em destaque"
 function carregarDestaque(post) {
     const container = document.querySelector(".werych");
 
@@ -82,7 +104,7 @@ function carregarDestaque(post) {
     `;
 }
 
-// ==================== SEÇÃO: MAIS POPULARES ====================
+// ajustar parte do "Mais populares"
 function carregarPopulares(lista) {
     const container = document.querySelector(".tudo");
 
@@ -101,8 +123,7 @@ function carregarPopulares(lista) {
                     <p>${post.categoria}</p>
                     <p class="espacamento1">${post.mensagem}</p>
                     <p class="espacamento1">
-                        🗓️ ${dataFormatada} • ⏱︎ 
-                        <span data-editado="${editado}">${tempoDesde(editado)}</span>
+                        🗓️ ${dataFormatada} • ⏱︎ <span data-editado="${editado}">${tempoDesde(editado)}</span>
                     </p>
                 </div>
             </div>
@@ -113,7 +134,7 @@ function carregarPopulares(lista) {
     container.innerHTML = html;
 }
 
-// =========================== PESQUISA ===========================
+// fazer a barra de pesquisa funcionar
 const barraPesquisa = document.querySelector(".pesq");
 
 barraPesquisa.addEventListener("input", () => {
@@ -133,8 +154,7 @@ barraPesquisa.addEventListener("input", () => {
     });
 });
 
-
-// ==================== SEÇÃO: ARTIGOS ====================
+// ajustar parte de "Artigos"
 function carregarArtigos(posts) {
     const postsContainer = document.querySelector('.cl .fotos');
     postsContainer.innerHTML = '';
@@ -163,7 +183,10 @@ function carregarArtigos(posts) {
     MaximoPosts(posts);
 }
 
-// ==================== BOTÃO "CARREGAR MAIS" ====================
+// atualizar o tempo definido de 30 em 30 segundos
+setInterval(atualizarTempos, 30000);
+
+// fazer o botão de carregar mais funcionar
 const btMais = document.getElementById("mais");
 let maximo = 6;
 
@@ -182,6 +205,3 @@ function MaximoPosts(posts) {
 
     btMais.style.display = maximo < postElements.length ? 'block' : 'none';
 }
-
-// Atualiza tempo automaticamente
-setInterval(atualizarTempos, 30000);

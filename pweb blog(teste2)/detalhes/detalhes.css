@@ -84,9 +84,11 @@ body {
     box-shadow: 2px 4px #1111119f;
 }
 
-.me_pou p{
-    margin-top: 10%;
-    color: #0c0000;
+.me_pou h2{
+   text-align: center;
+   color: #0c0000;
+   margin-top: 5%;
+   padding: 10px;
 }
 
 .article {
