@@ -1,6 +1,5 @@
 const apiUrl = "http://localhost:3000/usuarios";
 
-// rolar de forma suave para as sections
 document.documentElement.style.scrollBehavior = "smooth";
 
 const botaoConhecerMais = document.querySelector(".bt1");
@@ -77,7 +76,7 @@ const fotos = {
 };
 
 document.addEventListener("click", e => {
-    const post = e.target.closest(".imagem");
+    const post = e.target.closest(".abrir-post");
     if (!post) return;
 
     const id = post.dataset.id;
@@ -104,7 +103,7 @@ function carregarTudo() {
         .catch(err => console.error("Erro ao carregar posts:", err));
 }
 
-// DESTAQUE
+// fazer o "Destque" funcionar
 function carregarDestaque(post) {
     const container = document.querySelector(".werych");
     if (!container) return;
@@ -128,7 +127,7 @@ function carregarDestaque(post) {
     `;
 }
 
-// POPULARES
+// fazer o "Mais Populares" funcionar
 function carregarPopulares(lista) {
     const container = document.querySelector(".tudo");
     if (!container) return;
@@ -158,7 +157,7 @@ function carregarPopulares(lista) {
     container.innerHTML = html;
 }
 
-// PESQUISA
+// ajustar a barra de pesquisa
 const barraPesquisa = document.querySelector(".pesq");
 
 barraPesquisa.addEventListener("input", () => {
@@ -176,7 +175,7 @@ barraPesquisa.addEventListener("input", () => {
     });
 });
 
-// ARTIGOS
+// ajustar os "Artigos"
 function carregarArtigos(posts) {
     const postsContainer = document.querySelector('.cl .fotos');
     postsContainer.innerHTML = '';
