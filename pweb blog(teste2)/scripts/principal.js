@@ -60,6 +60,32 @@ function formatarData(dataStr) {
     return meses[mesAbrev] ? `${dia} ${meses[mesAbrev]}` : dataStr;
 }
 
+const fotos = {
+    "2b6a": 'ahs.html',
+    "b2db": 'blackmirror.html',
+    "61db": 'bomdiaveronica.html',
+    "f594": 'breakingbad.html',
+    "550d": 'dexter.html',
+    "8dac": 'killingeve.html',
+    "a8c9": 'StrangerThings.html',
+    "0628": 'thehauntingofblymanor.html',
+    "5dc0": 'twd.html',
+    "30d4": 'tlfou.html',
+    "1189": 'tvd.html',
+    "d2bc": 'yellowjackets.html',
+    "6b11": 'you.html'
+};
+
+document.addEventListener("click", e => {
+    const post = e.target.closest(".imagem");
+    if (!post) return;
+
+    const id = post.dataset.id;
+    if (!id || !fotos[id]) return;
+
+    window.location.href = `../pages/fotos/${fotos[id]}`;
+});
+
 // carregar posts do admin
 window.addEventListener("DOMContentLoaded", carregarTudo);
 
@@ -179,18 +205,6 @@ function carregarArtigos(posts) {
 
     MaximoPosts(posts);
 }
-
-// ⭐ EVENTO DE CLIQUE GLOBAL — FUNCIONA EM TODOS OS POSTS
-document.addEventListener("click", e => {
-    const alvo = e.target.closest(".abrir-post");
-    if (!alvo) return;
-
-    const id = alvo.dataset.id;
-    if (!id) return;
-
-    // 🔧 CAMINHO RELATIVO CORRETO
-    window.location.href = `./pages/detalhes.html?id=${id}`;
-});
 
 // atualizar tempo a cada 30s
 setInterval(atualizarTempos, 30000);
